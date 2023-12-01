@@ -1,74 +1,71 @@
 /* Gallery Section -------------------- */
 #gallery {
-    @extend %section;
+  @extend %section;
 
-    .gallery-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        position: relative;
-        top: 50px;
+  .gallery-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    top: 50px;
+  }
+
+  .image-box, .text-box {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .image-box {
+    height: 300px;
+    width: 300px;
+    opacity: 0.5;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+    margin-right: 10px;
+
+    &:not(.tall) {
+      height: 400px;
     }
 
-    .image-box, .text-box {
-        border-radius: 10px;
-        transition: all 0.3s ease;
-    
-        &:not(:last-child) {
-          margin-bottom: 10px;
-        }      
+    &.tall {
+      height: 600px;
     }
 
-    .image-box {
-        height: 300px;
-        width: 300px;
-        opacity: 0.5;
-        transform: scale(0.95);
-        transition: all 0.3s ease;
-        margin-right: 10px;
-
-        &:not(.tall) {
-            height: 400px;
-        }
-
-        &.tall {
-            height: 600px;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        // Generate styles with increasing delay for each image box
-        @for $i from 1 through 6 { // Adjust the number according to the number of items
-            &:nth-child(#{$i}) {
-                transition-delay: $i * 0.1s; // Increase delay by 0.1s for each image box
-                transform: translateZ(500px);
-            }
-        }
-
-        &.active {
-            // Active state
-            opacity: 1;
-            transform: scale(1);
-            transform: translateZ(0);
-        }
-    }      
-
-    .text-box {
-        background: $box-shadow-container;
-        color: $primary-font-color;
-        box-sizing: border-box;
-        padding: 20px;
-        width: 300px;
-
-        h3 {
-            color: $secondary-font-color;
-        }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
     }
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 0.1s;
+      }
+    }
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+  }
+
+  .text-box {
+    background: $box-shadow-container;
+    color: $primary-font-color;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 300px;
+
+    h3 {
+      color: $secondary-font-color;
+    }
+  }
 }

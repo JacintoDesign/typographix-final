@@ -7,6 +7,20 @@
   color: rgb(150, 150, 150);
 }
 
+.fadeInUp {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 html {
   box-sizing: border-box;
 }
@@ -113,11 +127,9 @@ nav .nav-right a:hover {
 
 @keyframes hoverAnimation {
   from {
-    transform: translateY(0);
     color: #636363;
   }
   to {
-    transform: translateY(-10px);
     color: white;
   }
 }
@@ -218,32 +230,26 @@ nav .nav-right a:hover {
 }
 #gallery .image-box:nth-child(1) {
   transition-delay: 0.1s;
-  transform: translateZ(500px);
 }
 #gallery .image-box:nth-child(2) {
   transition-delay: 0.2s;
-  transform: translateZ(500px);
 }
 #gallery .image-box:nth-child(3) {
   transition-delay: 0.3s;
-  transform: translateZ(500px);
 }
 #gallery .image-box:nth-child(4) {
   transition-delay: 0.4s;
-  transform: translateZ(500px);
 }
 #gallery .image-box:nth-child(5) {
   transition-delay: 0.5s;
-  transform: translateZ(500px);
 }
 #gallery .image-box:nth-child(6) {
   transition-delay: 0.6s;
-  transform: translateZ(500px);
 }
 #gallery .image-box.active {
   opacity: 1;
   transform: scale(1);
-  transform: translateZ(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 #gallery .text-box {
   background: rgb(31, 31, 31);

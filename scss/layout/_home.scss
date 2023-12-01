@@ -53,11 +53,9 @@
 
 @keyframes hoverAnimation {
     from {
-        transform: translateY(0);
         color: darken($primary-font-color, 20%);
     }
     to {
-        transform: translateY(-10px);
         color: white;
     }
 }
