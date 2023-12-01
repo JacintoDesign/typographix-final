@@ -1,0 +1,62 @@
+/* About Section ---------------------- */
+#about {
+    @extend %section;
+    height: 100vh;
+
+    .phrase {
+        color: darken($primary-font-color, 40%);
+        transition-property: color;
+        transition-timing-function: ease;
+      
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                transition-delay: $i * 0.1s; // Increase delay by 0.1s for each phrase
+            }
+        }
+      
+        &.active {
+            color: lighten($primary-font-color, 20%);
+        }
+      }
+      
+  
+    .about-container {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        width: 100%;
+        scroll-snap-type: proximity;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        p {
+            width: 75ch;
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+    }
+  
+    // // You might want to add a visual cue that indicates more content is available to scroll through
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 10px;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   width: 30px;
+    //   height: 10px;
+    //   background-color: $primary-font-color;
+    //   border-radius: 5px;
+    //   opacity: 0.7;
+    //   // Animation to make it gently blink, indicating there's more to scroll
+    //   animation: blink 1.5s ease-in-out infinite;
+    // }
+  
+    // // Keyframes for the blinking animation
+    // @keyframes blink {
+    //   0%, 100% { opacity: 0.7; }
+    //   50% { opacity: 0.3; }
+    // }
+}

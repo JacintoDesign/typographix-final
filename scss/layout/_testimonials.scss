@@ -1,0 +1,41 @@
+/* Testimonials Section ----------------- */
+#testimonials {
+    @extend %section;
+
+    .testimonials-container {
+        clip-path: polygon(0 35%, 100% 0, 100% 70%, 0% 100%);
+        background: $box-shadow-container;
+        height: 80vh;
+        position: relative;
+        top: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .testimonial {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+            top: 30px;
+
+            .image {
+                margin-right: 10px;
+    
+                img {
+                    border-radius: 50%;
+                    height: 100px;
+                }
+            }
+
+            .text {
+                width: 50ch;
+            }
+    
+            h2 {
+                position: relative;
+                color: $primary-font-color;
+            }
+        }
+    }
+}

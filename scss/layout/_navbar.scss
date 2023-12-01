@@ -1,25 +1,30 @@
-/* Sticky Navbar */
+/* Nav Section ------------------------ */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 5%;
-  color: var(--secondary-font-color);
+  color: $nav-font-color;
   position: sticky;
   top: 0;
   z-index: 1000;
   height: 60px;
-  background: var(--background);
 
   .nav-left {
     h1 {
       font-size: 3rem;
       transition: font-size 0.3s ease;
-    }
-  }
+      color: darken($nav-font-color, 20%);
+      font-weight: 300;
 
-  &.scrolled .nav-left h1 {
-    font-size: 1.5rem;
+      span {
+        color: lighten($nav-font-color, 10%);
+        font-weight: 600;
+        margin: 0 5px;
+        position: relative;
+        top: 5px;
+      }
+    }
   }
 
   .nav-right {
@@ -28,7 +33,7 @@ nav {
 
     a {
       margin-left: 20px;
-      color: var(--secondary-font-color);
+      color: $nav-font-color;
       text-decoration: none;
 
       &:hover {
@@ -36,21 +41,4 @@ nav {
       }
     }
   }
-}
-
-/* Dark Mode Switch */
-.theme-switcher {
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  cursor: pointer;
-
-  .fas {
-    font-size: 30px;
-    margin-left: 20px;
-  }
-  
-    &:hover {
-      transform: scale(1.1);
-    }
 }

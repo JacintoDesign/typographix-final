@@ -1,0 +1,98 @@
+/* Contact Section -------------------- */
+$input-bg: lighten($form-bg, 20%);
+$breakpoint-mobile: 768px;
+$font-size: 1rem;
+
+#contact {
+    @extend %section;
+    display: grid;
+    place-items: center;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .form-container {
+        background-color: $form-bg;
+        padding: 20px;
+        width: 80vw;
+        margin: 0 auto;
+        border-radius: 20px;
+        font-family: $font-stack;
+        font-size: $font-size;
+
+        form {
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+
+                @media screen and (max-width: $breakpoint-mobile) {
+                    grid-template-columns: 1fr;
+                }
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        color: white;
+                        margin-bottom: 5px;
+                    }
+
+                    input {
+                        background-color: $input-bg;
+                        border: none;
+                        border-radius: 8px;
+                        padding: 15px;
+                        color: white;
+                        font-family: inherit;
+                        font-size: inherit;
+                        &:focus {
+                            outline: none;
+                            background-color: darken($input-bg, 10%);
+                        }
+                    }
+                }
+            }
+
+            textarea {
+                box-sizing: border-box;
+                width: 100%; 
+                background-color: $input-bg;
+                border: none;
+                border-radius: 8px;
+                padding: 15px;
+                margin: 20px 20px 0 0;
+                color: white;
+                height: 200px;
+                resize: vertical;
+                font-family: inherit;
+                font-size: inherit;
+                &:focus {
+                    outline: none;
+                    background-color: darken($input-bg, 10%);
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 15px;
+                background-color: lighten($input-bg, 30%);
+                border-radius: 25px;
+                color: $background;
+                font-size: 1.2rem;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin-top: 20px;
+
+                &:hover {
+                    background-color: darken($input-bg, 10%);
+                    color: $secondary-font-color;
+                }
+            }
+        }
+    }
+}
+

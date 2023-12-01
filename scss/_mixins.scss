@@ -1,1 +1,36 @@
+// Extends for common styles
+%section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: $background;
+    color: $primary-font-color;
+}
+
 // Mixins for common styles
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+@mixin article {
+    flex: 1;
+    margin: 0 15px;
+    background: $box-shadow-container;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@mixin article-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}

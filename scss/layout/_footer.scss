@@ -1,0 +1,28 @@
+/* Footer Section --------------------- */
+footer {
+    @include flex-center;
+    flex-direction: column;
+    color: $secondary-font-color;
+    padding: 20px 0;
+    font-size: 1.2rem;
+    background: $background;
+  
+    small {
+      text-align: center;
+    }
+  
+    .social-icons {
+      margin-top: 10px;
+  
+      a {
+        margin: 0 10px;
+        color: $secondary-font-color;
+        font-size: 1.5rem;
+  
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+    
