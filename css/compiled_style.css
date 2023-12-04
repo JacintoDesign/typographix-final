@@ -195,42 +195,42 @@ nav.active ul li {
   position: relative;
 }
 .video-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.video-container .video-background {
   position: fixed;
-  right: 0;
-  bottom: 0;
   width: 100vw;
   height: auto;
+  object-fit: cover;
 }
-.video-container h1 {
-  position: relative;
-  top: -60px;
-  color: rgb(150, 150, 150);
-  font-family: helvetica, sans-serif;
-  font-size: 6rem;
-  z-index: 10;
-  animation: hoverAnimation 1.5s ease-in-out infinite alternate;
+@media (max-width: 600px) {
+  .video-container video {
+    width: auto;
+    height: 100%;
+  }
 }
-.video-container p {
-  color: white;
-  position: relative;
-  top: -70px;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 200;
-}
-.video-container .overlay {
+
+.overlay {
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+}
+.overlay h1 {
+  position: relative;
+  color: rgb(150, 150, 150);
+  font-family: helvetica, sans-serif;
+  font-size: clamp(3.5rem, 5vw, 6rem);
+  z-index: 10;
+  animation: hoverAnimation 1.5s ease-in-out infinite alternate;
+}
+.overlay p {
+  color: white;
+  position: relative;
+  text-align: center;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-weight: 200;
 }
 
 @keyframes hoverAnimation {
