@@ -217,6 +217,11 @@ nav.active ul li {
   display: grid;
   place-items: center;
 }
+@media (max-width: 600px) {
+  .overlay {
+    height: calc(100vh + 60px);
+  }
+}
 .overlay h1 {
   position: relative;
   color: rgb(150, 150, 150);
@@ -297,6 +302,15 @@ nav.active ul li {
   width: 75ch;
   font-size: 1.5rem;
   line-height: 1.8;
+}
+@media (max-width: 600px) {
+  #about .about-container h2 {
+    margin-left: 5%;
+  }
+  #about .about-container p {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 /* Gallery Section -------------------- */

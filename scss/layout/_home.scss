@@ -31,6 +31,10 @@
     display: grid;
     place-items: center;
 
+    @include smartphone-vertical {
+        height: calc(100vh + 60px);
+    }
+
     h1 {
         position: relative;
         color: $primary-font-color;
