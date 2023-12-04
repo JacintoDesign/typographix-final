@@ -8,6 +8,10 @@ $font-size: 1rem;
     display: grid;
     place-items: center;
 
+    .contact-container {
+        opacity: 0;
+    }
+
     h2 {
         font-size: 3rem;
     }

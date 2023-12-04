@@ -24,6 +24,7 @@
 /* Featured Article Styles */
 .featured-article {
   margin-bottom: 50px;
+  opacity: 0;
 
   h1 {
     font-size: 2.5rem;
@@ -50,6 +51,7 @@
 
 .article {
   @include article;
+  opacity: 0;
 
   h2 {
     font-size: 1.8rem;
