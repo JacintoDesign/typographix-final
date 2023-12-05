@@ -6,6 +6,8 @@ footer {
     padding: 20px 0;
     font-size: 1.2rem;
     background: $background;
+    position: relative;
+    z-index: 9;
   
     small {
       text-align: center;

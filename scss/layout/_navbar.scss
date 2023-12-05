@@ -9,6 +9,14 @@
   top: 0;
   z-index: 10;
   height: 60px;
+  
+  @include tablet-horizontal-large {
+    background: $background;
+  }
+
+  @include tablet-vertical {
+    background: $background;
+  }
 
   .nav-left {
     h1 {
@@ -16,6 +24,12 @@
       transition: font-size 0.3s ease;
       color: darken($nav-font-color, 20%);
       font-weight: 300;
+
+      @include tablet-horizontal-large {
+        font-size: 2.5rem;
+        position: relative;
+        top: -2.5px;
+      }
 
       span {
         color: lighten($nav-font-color, 10%);
@@ -66,7 +80,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   opacity: 0;
   z-index: 2;
@@ -109,6 +123,10 @@ nav {
     transform: translateY(-100%);
     transition: transform 0.5s ease;
 
+    @include smartphone-horizontal {
+      top: 5%;
+    }
+
     li {
       margin: 1rem 0;
       opacity: 0;
@@ -119,6 +137,22 @@ nav {
         font-weight: 100;
         text-decoration: none;
         color: $nav-font-color;
+
+        @include tablet-horizontal {
+          font-size: 3rem;
+        }
+  
+        @include smartphone-vertical {
+          font-size: 3rem;
+        }
+  
+        @include smartphone-small {
+          font-size: 2.5rem;
+        }
+
+        @include smartphone-horizontal {
+          font-size: 1.5rem;
+        }
       }
 
       @for $i from 1 through 5 {

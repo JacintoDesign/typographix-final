@@ -13,10 +13,24 @@
         object-fit: cover;
     }
 
-    @include smartphone-vertical {
+    @include tablet-horizontal-large {
+        video {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    @include tablet-vertical {
         video {
             width: auto;
             height: 100%;
+        }
+    }
+
+    @include smartphone-horizontal {
+        video {
+            height: 100%;
+            width: 100%;
         }
     }
 }
@@ -31,8 +45,8 @@
     display: grid;
     place-items: center;
 
-    @include smartphone-vertical {
-        height: calc(100vh + 60px);
+    @include tablet-vertical {
+        height: 100%;
     }
 
     h1 {
@@ -42,6 +56,10 @@
         font-size: clamp(3.5rem, 5vw, 6rem); 
         z-index: 10;
         animation: hoverAnimation 1.5s ease-in-out infinite alternate;
+
+        @include tablet-vertical {
+            font-size: 4rem;
+        }
     }
 
     p {

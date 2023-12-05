@@ -1,94 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // About Observer
-  const phrases = document.querySelectorAll('#about .phrase');
+  const isMobile = window.innerWidth <= 1025;
 
-  const observerOptions = {
-    root: null, // viewport
-    threshold: 1 // Trigger halfway through the element's visibility
-  };
+  // Function to create and observe IntersectionObservers
+  function createObserver(selector, observerOptions, toggleClass) {
+    const items = document.querySelectorAll(selector);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(toggleClass);
+        } else {
+          entry.target.classList.remove(toggleClass);
+        }
+      });
+    }, observerOptions);
 
-  const phraseObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      } else {
-        entry.target.classList.remove('active');
-      }
+    items.forEach(item => {
+      observer.observe(item);
     });
-  }, observerOptions);
+  }
 
-  phrases.forEach(phrase => {
-    phraseObserver.observe(phrase);
-  });
-
-  // Gallery Observer
-  const galleryItems = document.querySelectorAll('#gallery .image-box');
-
-  const galleryObserverOptions = {
-    root: null, // viewport
-    threshold: 1 // adjust as needed
-  };
-
-  const galleryObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      } else {
-        entry.target.classList.remove('active');
-      }
-    });
-  }, galleryObserverOptions);
-
-  galleryItems.forEach(item => {
-    galleryObserver.observe(item);
-  });
-
-  // Blog Observer
-  const blogArticles = document.querySelectorAll('#blog .featured-article, #blog .article');
-
-  const blogObserverOptions = {
-    root: null, // viewport
-    threshold: 0.3 // adjust as needed, 0.1 means 10% of the item in the viewport
-  };
-
-  const blogObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add class to start animation
-        entry.target.classList.add('fadeInUp');
-      } else {
-        // Remove class to reset animation
-        entry.target.classList.remove('fadeInUp');
-      }
-    });
-  }, blogObserverOptions);
-
-  blogArticles.forEach(item => {
-    blogObserver.observe(item);
-  });
-
-  // Contact Observer
-  const contactItems = document.querySelectorAll('#contact > div');
-
-  const contactObserverOptions = {
-    root: null, // viewport
-    threshold: 0.7 // adjust as needed
-  };
-
-  const contactObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('fadeInUp');
-      } else {
-        entry.target.classList.remove('fadeInUp');
-      }
-    });
-  }, contactObserverOptions);
-
-  contactItems.forEach(item => {
-    contactObserver.observe(item);
-  });
-
+  // Create observers for different sections
+  createObserver('#about .phrase', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
+  createObserver('#gallery .image-box', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
+  createObserver('#blog .featured-article, #blog .article', { root: null, threshold: isMobile ? 0 : 0.3 }, 'fadeInUp');
+  createObserver('#contact > div', { root: null, threshold: isMobile ? 0 : 0.7 }, 'fadeInUp');
 });
 
 // Navigation ----------------------------------------

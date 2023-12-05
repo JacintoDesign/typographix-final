@@ -8,12 +8,16 @@ $font-size: 1rem;
     display: grid;
     place-items: center;
 
+    @include smartphone-horizontal {
+        padding-top: 10vh
+    }
+
     .contact-container {
         opacity: 0;
     }
 
     h2 {
-        font-size: 3rem;
+        font-size: clamp(2rem, 5vw, 3rem);
     }
 
     .form-container {
@@ -31,8 +35,9 @@ $font-size: 1rem;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
 
-                @media screen and (max-width: $breakpoint-mobile) {
+                @include smartphone-vertical {
                     grid-template-columns: 1fr;
+                    gap: 10px;
                 }
 
                 .form-group {
@@ -73,6 +78,15 @@ $font-size: 1rem;
                 resize: vertical;
                 font-family: inherit;
                 font-size: inherit;
+
+                @include smartphone-small {
+                    height: 100px;
+                }
+
+                @include smartphone-horizontal {
+                    height: 100px;
+                }
+
                 &:focus {
                     outline: none;
                     background-color: darken($input-bg, 10%);

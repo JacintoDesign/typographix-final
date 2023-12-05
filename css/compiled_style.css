@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;900&display=swap");
-#contact, #testimonials, #blog, #gallery, #about {
+#contact, #blog, #gallery, #about {
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -51,11 +51,28 @@ body {
   z-index: 10;
   height: 60px;
 }
+@media (max-width: 1367px) {
+  .nav-wrapper {
+    background: rgb(18, 18, 18);
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .nav-wrapper {
+    background: rgb(18, 18, 18);
+  }
+}
 .nav-wrapper .nav-left h1 {
   font-size: 3rem;
   transition: font-size 0.3s ease;
   color: #b3b3b3;
   font-weight: 300;
+}
+@media (max-width: 1367px) {
+  .nav-wrapper .nav-left h1 {
+    font-size: 2.5rem;
+    position: relative;
+    top: -2.5px;
+  }
 }
 .nav-wrapper .nav-left h1 span {
   color: white;
@@ -96,7 +113,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   opacity: 0;
   z-index: 2;
@@ -149,6 +166,11 @@ nav ul {
   transform: translateY(-100%);
   transition: transform 0.5s ease;
 }
+@media (orientation: landscape) and (max-height: 450px) {
+  nav ul {
+    top: 5%;
+  }
+}
 nav ul li {
   margin: 1rem 0;
   opacity: 0;
@@ -159,6 +181,26 @@ nav ul li a {
   font-weight: 100;
   text-decoration: none;
   color: rgb(230, 230, 230);
+}
+@media (orientation: landscape) and (max-width: 1181px) {
+  nav ul li a {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 600px) {
+  nav ul li a {
+    font-size: 3rem;
+  }
+}
+@media (orientation: portrait) and (max-height: 700px) {
+  nav ul li a {
+    font-size: 2.5rem;
+  }
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  nav ul li a {
+    font-size: 1.5rem;
+  }
 }
 nav ul li:nth-child(1) {
   transition-delay: 0.5s;
@@ -200,10 +242,22 @@ nav.active ul li {
   height: auto;
   object-fit: cover;
 }
-@media (max-width: 600px) {
+@media (max-width: 1367px) {
+  .video-container video {
+    height: 100%;
+    width: auto;
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
   .video-container video {
     width: auto;
     height: 100%;
+  }
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  .video-container video {
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -217,9 +271,9 @@ nav.active ul li {
   display: grid;
   place-items: center;
 }
-@media (max-width: 600px) {
+@media (orientation: portrait) and (max-width: 1024px) {
   .overlay {
-    height: calc(100vh + 60px);
+    height: 100%;
   }
 }
 .overlay h1 {
@@ -229,6 +283,11 @@ nav.active ul li {
   font-size: clamp(3.5rem, 5vw, 6rem);
   z-index: 10;
   animation: hoverAnimation 1.5s ease-in-out infinite alternate;
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .overlay h1 {
+    font-size: 4rem;
+  }
 }
 .overlay p {
   color: white;
@@ -249,6 +308,12 @@ nav.active ul li {
 /* About Section ---------------------- */
 #about {
   height: 100vh;
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  #about {
+    padding-top: 10vh;
+    padding-bottom: 50vh;
+  }
 }
 #about .phrase {
   color: #303030;
@@ -296,14 +361,23 @@ nav.active ul li {
   scroll-snap-type: proximity;
 }
 #about .about-container h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 #about .about-container p {
   width: 75ch;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   line-height: 1.8;
 }
-@media (max-width: 600px) {
+@media (orientation: landscape) and (max-width: 1181px) {
+  #about .about-container h2 {
+    margin-left: 5%;
+  }
+  #about .about-container p {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
   #about .about-container h2 {
     margin-left: 5%;
   }
@@ -383,6 +457,49 @@ nav.active ul li {
 #gallery .text-box h3 {
   color: rgb(200, 200, 200);
 }
+@media (max-width: 1367px) {
+  #gallery .gallery-container {
+    margin: 0 2.5%;
+  }
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  #gallery .gallery-container {
+    margin: 0 2.5%;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 30vh;
+    top: 100px;
+  }
+  #gallery .image-box, #gallery .text-box {
+    width: 90%;
+    margin-right: unset;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  #gallery .gallery-container {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 10vh;
+    top: 100px;
+  }
+  #gallery .image-box, #gallery .text-box {
+    width: 95%;
+    margin-right: unset;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (orientation: portrait) and (max-height: 700px) {
+  #gallery .gallery-container {
+    padding-bottom: 20vh;
+  }
+}
 
 /* Blog Section ----------------------- */
 #blog {
@@ -403,6 +520,12 @@ nav.active ul li {
 .blog-container a:hover {
   color: #1a53ff;
 }
+@media (max-width: 1367px) {
+  .blog-container {
+    width: 90%;
+    padding: 5%;
+  }
+}
 
 /* Featured Article Styles */
 .featured-article {
@@ -414,10 +537,25 @@ nav.active ul li {
   color: rgb(200, 200, 200);
   margin: 15px 0;
 }
+@media (orientation: portrait) and (max-width: 1024px) {
+  .featured-article h1 {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 600px) {
+  .featured-article h1 {
+    font-size: 1.5rem;
+  }
+}
 .featured-article p {
   font-size: 1.2rem;
   color: rgb(150, 150, 150);
   margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .featured-article p {
+    font-size: 1rem;
+  }
 }
 .featured-article img {
   width: 100%;
@@ -430,6 +568,11 @@ nav.active ul li {
 .smaller-articles {
   display: flex;
   justify-content: space-between;
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .smaller-articles {
+    flex-direction: column;
+  }
 }
 
 .article {
@@ -445,82 +588,46 @@ nav.active ul li {
   color: rgb(200, 200, 200);
   margin: 15px 0;
 }
+@media (orientation: landscape) and (max-width: 1181px) {
+  .article h2 {
+    font-size: 1.3rem;
+  }
+}
+@media (orientation: portrait) and (max-width: 1024px) {
+  .article h2 {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 600px) {
+  .article h2 {
+    font-size: 1.3rem;
+  }
+}
 .article p {
   font-size: 1rem;
   color: rgb(150, 150, 150);
+}
+@media (orientation: landscape) and (max-width: 1181px) {
+  .article p {
+    font-size: 0.9rem;
+  }
 }
 .article img {
   width: 100%;
   max-height: 300px;
   object-fit: cover;
   margin-bottom: 15px;
+  min-height: 300px;
 }
-
-/* Blog - Media Queries --------------------- */
-/* Tablet Vertical */
-@media screen and (max-width: 1025px) {
-  .blog-container {
-    width: 90%;
-  }
-  .featured-article h1 {
-    font-size: 2.2rem;
-  }
+@media (orientation: portrait) and (max-width: 1024px) {
   .article {
     margin-bottom: 20px;
   }
-  .article h2 {
-    font-size: 1.7rem;
-  }
-  .smaller-articles {
-    flex-direction: column;
-  }
 }
-/* Smartphone Vertical */
-@media screen and (max-width: 600px) {
-  .featured-article h1 {
-    font-size: 1.5rem;
-  }
-  .featured-article p {
-    font-size: 1rem;
-  }
+@media (max-width: 600px) {
   .article {
     margin: 10px 0;
   }
-  .article h2 {
-    font-size: 1.3rem;
-  }
-}
-/* Testimonials Section ----------------- */
-#testimonials .testimonials-container {
-  clip-path: polygon(0 35%, 100% 0, 100% 70%, 0% 100%);
-  background: rgb(31, 31, 31);
-  height: 80vh;
-  position: relative;
-  top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#testimonials .testimonials-container .testimonial {
-  display: flex;
-  margin-bottom: 20px;
-  position: relative;
-  top: 30px;
-}
-#testimonials .testimonials-container .testimonial .image {
-  margin-right: 10px;
-}
-#testimonials .testimonials-container .testimonial .image img {
-  border-radius: 50%;
-  height: 100px;
-}
-#testimonials .testimonials-container .testimonial .text {
-  width: 50ch;
-}
-#testimonials .testimonials-container .testimonial h2 {
-  position: relative;
-  color: rgb(150, 150, 150);
 }
 
 /* Contact Section -------------------- */
@@ -528,11 +635,16 @@ nav.active ul li {
   display: grid;
   place-items: center;
 }
+@media (orientation: landscape) and (max-height: 450px) {
+  #contact {
+    padding-top: 10vh;
+  }
+}
 #contact .contact-container {
   opacity: 0;
 }
 #contact h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 #contact .form-container {
   background-color: rgb(31, 31, 31);
@@ -548,9 +660,10 @@ nav.active ul li {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 600px) {
   #contact .form-container form .grid-container {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 #contact .form-container form .grid-container .form-group {
@@ -588,6 +701,16 @@ nav.active ul li {
   font-family: inherit;
   font-size: inherit;
 }
+@media (orientation: portrait) and (max-height: 700px) {
+  #contact .form-container form textarea {
+    height: 100px;
+  }
+}
+@media (orientation: landscape) and (max-height: 450px) {
+  #contact .form-container form textarea {
+    height: 100px;
+  }
+}
 #contact .form-container form textarea:focus {
   outline: none;
   background-color: #393939;
@@ -619,6 +742,8 @@ footer {
   padding: 20px 0;
   font-size: 1.2rem;
   background: rgb(18, 18, 18);
+  position: relative;
+  z-index: 9;
 }
 footer small {
   text-align: center;

@@ -3,6 +3,11 @@
     @extend %section;
     height: 100vh;
 
+    @include smartphone-horizontal {
+        padding-top: 10vh;
+        padding-bottom: 50vh;
+    }
+
     .phrase {
         color: darken($primary-font-color, 40%);
         transition-property: color;
@@ -17,9 +22,8 @@
         &.active {
             color: lighten($primary-font-color, 20%);
         }
-      }
+    }
       
-  
     .about-container {
         display: grid;
         place-items: center;
@@ -28,16 +32,27 @@
         scroll-snap-type: proximity;
 
         h2 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
         }
 
         p {
             width: 75ch;
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 5vw, 1.5rem);
             line-height: 1.8;
         }
 
-        @include smartphone-vertical {
+        @include tablet-horizontal {
+            h2 {
+                margin-left: 5%;
+            }
+
+            p {
+                width: 90%;
+                margin-left: 5%;
+            }
+        }
+
+        @include tablet-vertical {
             h2 {
                 margin-left: 5%;
             }
