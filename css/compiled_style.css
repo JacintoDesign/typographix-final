@@ -108,17 +108,14 @@ body {
   transform: translateY(-0.75rem) rotate(45deg);
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+#nav {
   width: 100%;
   height: 100%;
   overflow: hidden;
   opacity: 0;
   z-index: 2;
 }
-nav .strip {
+#nav .strip {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -128,33 +125,36 @@ nav .strip {
   transition: transform 0.5s ease;
   z-index: 1;
 }
-nav .strip:nth-child(1) {
+#nav .strip:nth-child(1) {
   left: 0%;
   transition-delay: 0s;
 }
-nav .strip:nth-child(2) {
+#nav .strip:nth-child(2) {
   left: 20%;
   transition-delay: 0.1s;
 }
-nav .strip:nth-child(3) {
+#nav .strip:nth-child(3) {
   left: 40%;
   transition-delay: 0.2s;
 }
-nav .strip:nth-child(4) {
+#nav .strip:nth-child(4) {
   left: 60%;
   transition-delay: 0.3s;
 }
-nav .strip:nth-child(5) {
+#nav .strip:nth-child(5) {
   left: 80%;
   transition-delay: 0.4s;
 }
-nav.active {
+#nav.active {
   opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-nav.active .strip {
+#nav.active .strip {
   transform: translateY(0);
 }
-nav ul {
+#nav ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -167,64 +167,64 @@ nav ul {
   transition: transform 0.5s ease;
 }
 @media (orientation: landscape) and (max-height: 450px) {
-  nav ul {
+  #nav ul {
     top: 5%;
   }
 }
-nav ul li {
+#nav ul li {
   margin: 1rem 0;
   opacity: 0;
   transition: opacity 1s ease;
 }
-nav ul li a {
+#nav ul li a {
   font-size: 4rem;
   font-weight: 100;
   text-decoration: none;
   color: rgb(230, 230, 230);
 }
 @media (orientation: landscape) and (max-width: 1181px) {
-  nav ul li a {
+  #nav ul li a {
     font-size: 3rem;
   }
 }
 @media (max-width: 600px) {
-  nav ul li a {
+  #nav ul li a {
     font-size: 3rem;
   }
 }
 @media (orientation: portrait) and (max-height: 700px) {
-  nav ul li a {
+  #nav ul li a {
     font-size: 2.5rem;
   }
 }
 @media (orientation: landscape) and (max-height: 450px) {
-  nav ul li a {
+  #nav ul li a {
     font-size: 1.5rem;
   }
 }
-nav ul li:nth-child(1) {
+#nav ul li:nth-child(1) {
   transition-delay: 0.5s;
 }
-nav ul li:nth-child(2) {
+#nav ul li:nth-child(2) {
   transition-delay: 0.6s;
 }
-nav ul li:nth-child(3) {
+#nav ul li:nth-child(3) {
   transition-delay: 0.7s;
 }
-nav ul li:nth-child(4) {
+#nav ul li:nth-child(4) {
   transition-delay: 0.8s;
 }
-nav ul li:nth-child(5) {
+#nav ul li:nth-child(5) {
   transition-delay: 0.9s;
 }
-nav ul li:hover {
+#nav ul li:hover {
   font-weight: 300;
   border-bottom: 1px solid rgb(230, 230, 230);
 }
-nav.active ul {
+#nav.active ul {
   transform: translateY(0);
 }
-nav.active ul li {
+#nav.active ul li {
   opacity: 1;
 }
 
@@ -267,7 +267,7 @@ nav.active ul li {
   top: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
 }
@@ -316,7 +316,7 @@ nav.active ul li {
   }
 }
 #about .phrase {
-  color: #303030;
+  color: #636363;
   transition-property: color;
   transition-timing-function: ease;
 }
@@ -687,7 +687,12 @@ nav.active ul li {
   outline: none;
   background-color: #393939;
 }
-#contact .form-container form textarea {
+#contact .form-container form .message label {
+  position: relative;
+  top: 15px;
+  color: white;
+}
+#contact .form-container form .message textarea {
   box-sizing: border-box;
   width: 100%;
   background-color: #525252;
@@ -702,16 +707,16 @@ nav.active ul li {
   font-size: inherit;
 }
 @media (orientation: portrait) and (max-height: 700px) {
-  #contact .form-container form textarea {
+  #contact .form-container form .message textarea {
     height: 100px;
   }
 }
 @media (orientation: landscape) and (max-height: 450px) {
-  #contact .form-container form textarea {
+  #contact .form-container form .message textarea {
     height: 100px;
   }
 }
-#contact .form-container form textarea:focus {
+#contact .form-container form .message textarea:focus {
   outline: none;
   background-color: #393939;
 }
@@ -757,7 +762,7 @@ footer .social-icons a {
   font-size: 1.5rem;
 }
 footer .social-icons a:hover {
-  filter: brightness(0.9);
+  color: #fbfbfb;
 }
 
 /* Scrollbar */

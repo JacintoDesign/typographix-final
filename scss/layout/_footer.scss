@@ -22,7 +22,7 @@ footer {
         font-size: 1.5rem;
   
         &:hover {
-          filter: brightness(0.9);
+          color: lighten($secondary-font-color, 20%);
         }
       }
     }
