@@ -7,59 +7,54 @@
         padding-top: 10vh;
         padding-bottom: 50vh;
     }
-
-    .phrase {
-        color: darken($primary-font-color, 20%);
-        transition-property: color;
-        transition-timing-function: ease;
-      
-        @for $i from 1 through 10 {
-            &:nth-child(#{$i}) {
-                transition-delay: $i * 0.1s; // Increase delay by 0.1s for each phrase
-            }
-        }
-      
-        &.active {
-            color: lighten($primary-font-color, 20%);
-        }
-    }
       
     .about-container {
         display: grid;
         place-items: center;
         height: 100%;
         width: 100%;
-        scroll-snap-type: proximity;
 
         h2 {
             font-size: clamp(2rem, 5vw, 3rem);
+
+            @include tablet-horizontal {
+                margin-left: 5%;
+            }
+
+            @include tablet-vertical {
+                margin-left: 5%;
+            }
         }
 
         p {
             width: 75ch;
             font-size: clamp(1rem, 5vw, 1.5rem);
             line-height: 1.8;
-        }
 
-        @include tablet-horizontal {
-            h2 {
+            @include tablet-horizontal {
+                width: 90%;
                 margin-left: 5%;
             }
 
-            p {
+            @include tablet-vertical {
                 width: 90%;
                 margin-left: 5%;
             }
         }
 
-        @include tablet-vertical {
-            h2 {
-                margin-left: 5%;
+        .phrase {
+            color: darken($primary-font-color, 20%);
+            transition-property: color;
+            transition-timing-function: ease;
+          
+            @for $i from 1 through 8 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 0.1s;
+                }
             }
-
-            p {
-                width: 90%;
-                margin-left: 5%;
+          
+            &.active {
+                color: lighten($primary-font-color, 20%);
             }
         }
     }

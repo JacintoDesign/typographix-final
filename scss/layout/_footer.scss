@@ -1,17 +1,12 @@
 /* Footer Section --------------------- */
 footer {
-    @include flex-center;
-    flex-direction: column;
+    @include flex-center(column);
+    background: $background;
     color: $secondary-font-color;
     padding: 20px 0;
     font-size: 1.2rem;
-    background: $background;
     position: relative;
     z-index: 9;
-  
-    small {
-      text-align: center;
-    }
   
     .social-icons {
       margin-top: 10px;

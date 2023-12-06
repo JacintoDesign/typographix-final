@@ -8,7 +8,7 @@
 .toast {
     visibility: hidden;
     min-width: 250px;
-    background-color: darken($primary-font-color, 20%);
+    background: darken($primary-font-color, 20%);
     color: white;
     text-align: center;
     border-radius: 8px;
@@ -20,16 +20,28 @@
 
     &.show {
         visibility: visible;
-        animation: fadein 0.5s, fadeout 0.5s 9.5s;
+        animation: fadeIn 0.5s, fadeOut 0.5s 9.5s;
     }
 }
 
-@keyframes fadein {
-    from { top: 0; opacity: 0; }
-    to { top: 10px; opacity: 1; }
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+        top: 0; 
+    }
+    to { 
+        opacity: 1; 
+        top: 10px;  
+    }
 }
 
-@keyframes fadeout {
-    from { top: 10px; opacity: 1; }
-    to { top: 0; opacity: 0; }
+@keyframes fadeOut {
+    from { 
+        opacity: 1; 
+        top: 10px; 
+    }
+    to { 
+        opacity: 0; 
+        top: 0;  
+    }
 }

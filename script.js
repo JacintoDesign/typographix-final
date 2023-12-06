@@ -51,8 +51,8 @@ function hideMenu() {
 document.getElementById('myForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  var form = this;
-  var formData = new FormData(form);
+  const form = this;
+  const formData = new FormData(form);
 
   fetch(form.action, {
     method: 'POST',
@@ -64,7 +64,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   .then(response => {
       if (response.ok) {
         form.reset();
-        var toast = document.getElementById("toast");
+        const toast = document.getElementById("toast");
         toast.classList.add("show");
         setTimeout(function(){ toast.classList.remove("show"); }, 10000);        
       } else {

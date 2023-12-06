@@ -1,32 +1,73 @@
 // Extends for common styles
 %section {
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
-    background: $background;
-    color: $primary-font-color;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: $background;
+  color: $primary-font-color;
+}
+
+%full-screen-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+%article {
+  flex: 1;
+  margin: 0 15px;
+  background: $background-alt;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+%article-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+%contact-input {
+  background-color: $input-bg;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 // Mixins for common styles
-@mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-@mixin article {
-    flex: 1;
-    margin: 0 15px;
-    background: $box-shadow-container;
-    padding: 20px;
-    border-radius: 5px;
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
 }
 
-@mixin article-img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    margin-bottom: 15px;
+@mixin blog-title($font-size) {
+  font-size: $font-size;
+  color: $secondary-font-color;
+  margin: 15px 0;
+}
+
+@mixin mobile-gallery-container($padding-bottom) {
+  flex-direction: column;
+  height: auto;
+  padding-bottom: $padding-bottom;
+  top: 100px;
+}
+
+@mixin mobile-gallery-box($width) {
+  width: $width;
+  margin-right: unset;
+  margin: auto;
+  margin-bottom: 10px;
+  opacity: 1;
+  transform: scale(1);
 }
 
 // Media Queries
@@ -43,7 +84,7 @@
 }
 
 @mixin tablet-vertical {
-  @media (orientation: portrait) and (max-width: 1024px) {
+  @media (orientation: portrait) and (max-width: 1025px) {
     @content;
   }
 }
@@ -73,11 +114,11 @@
 
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }

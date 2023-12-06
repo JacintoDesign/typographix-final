@@ -3,29 +3,33 @@
     @extend %section;
 
     .gallery-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
         height: 100vh;
         position: relative;
         top: 50px;
-    }
 
-    .image-box, .text-box {
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        &:not(:last-child) {
-            margin-bottom: 10px;
+        @include tablet-horizontal-large {
+            margin: 0 2.5%;
+        }
+
+        @include tablet-vertical {
+            @include mobile-gallery-container(10vh);
+        }
+
+        @include smartphone-small {
+            padding-bottom: 20vh;
+        }
+
+        @include smartphone-horizontal {
+            margin: 0 2.5%;
+            @include mobile-gallery-container(30vh);
         }
     }
 
     .image-box {
-        height: 300px;
         width: 300px;
         opacity: 0.5;
         transform: scale(0.95);
-        transition: all 0.3s ease;
         margin-right: 10px;
 
         &:not(.tall) {
@@ -34,6 +38,20 @@
 
         &.tall {
             height: 600px;
+            animation: levitation 4s ease-in-out infinite;
+
+            @include tablet-vertical {
+                animation: none;
+            }
+
+            @include smartphone-horizontal {
+                animation: none;
+            }
+        }
+
+        @keyframes levitation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         img {
@@ -57,8 +75,7 @@
     }
 
     .text-box {
-        background: $box-shadow-container;
-        color: $primary-font-color;
+        background: $background-alt;
         box-sizing: border-box;
         padding: 20px;
         width: 300px;
@@ -68,52 +85,18 @@
         }
     }
 
-    @include tablet-horizontal-large {
-        .gallery-container {
-            margin: 0 2.5%;
-        }
-    }
-
-    @include smartphone-horizontal {
-        .gallery-container {
-            margin: 0 2.5%;
-            flex-direction: column;
-            height: auto;
-            padding-bottom: 30vh;
-            top: 100px;
-        }
-
-        .image-box, .text-box {
-            width: 90%;
-            margin-right: unset;
-            margin: auto;
+    .image-box, .text-box {
+        border-radius: 10px;
+        &:not(:last-child) {
             margin-bottom: 10px;
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    @include tablet-vertical {
-        .gallery-container {
-            flex-direction: column;
-            height: auto;
-            padding-bottom: 10vh;
-            top: 100px;
         }
 
-        .image-box, .text-box {
-            width: 95%;
-            margin-right: unset;
-            margin: auto;
-            margin-bottom: 10px;
-            opacity: 1;
-            transform: scale(1);
+        @include tablet-vertical {
+            @include mobile-gallery-box(95%);
         }
-    }
 
-    @include smartphone-small {
-        .gallery-container {
-            padding-bottom: 20vh;
+        @include smartphone-horizontal {
+            @include mobile-gallery-box(90%);
         }
     }
 }

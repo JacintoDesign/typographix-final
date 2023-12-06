@@ -13,7 +13,7 @@
     <!-- Navigation -->
     <nav class="nav-wrapper">
         <div class="nav-left">
-            <h1 id="logo">{<span>T</span>}</h1>
+            <h1>{<span>T</span>}</h1>
         </div>
         <div class="nav-right">
             <div class="menu-icon" onclick="toggleMenu()">
@@ -44,7 +44,7 @@
         <section id="home">
             <!-- Video -->
             <div class="video-container">
-                <video autoplay loop muted class="video-background">
+                <video autoplay loop muted>
                     <source src="assets/future-tunnel.mp4">
                 </video>
             </div>
@@ -109,9 +109,9 @@
         <section id="blog">
             <div class="blog-container">
                 <!-- Main Featured Article -->
-                <div class="featured-article hidden">
+                <div class="featured-article">
                     <img src="assets/blog-1.jpg" alt="Computer Setup" loading="lazy">
-                    <h1>Enhancing Productivity: Revolutionizing Modern Workspaces</h1>
+                    <h3>Enhancing Productivity: Revolutionizing Modern Workspaces</h3>
                     <p>In the rapidly evolving landscape of work, the concept of productivity has taken center stage, prompting a radical transformation in the design and functionality of modern workspaces. Gone are the days of rigid cubicles and monotonous routines...</p>
                     <a href="https://jacintodesign.github.io/typographix-blog-v3/article1.html">Read More</a>
                 </div>
@@ -119,25 +119,25 @@
                 <!-- Three Smaller Articles -->
                 <div class="smaller-articles">
                     <!-- Article 1 -->
-                    <div class="article hidden">
+                    <div class="article">
                         <img src="assets/blog-2.jpg" alt="Robot on bench" loading="lazy">
-                        <h2>Unveiling the Future: Quantum Leaps in Humanoid Robotics</h2>
+                        <h3>Unveiling the Future: Quantum Leaps in Humanoid Robotics</h3>
                         <p>In a startling turn of events, the field of robotics has taken a monumental leap forward with the introduction of cutting-edge humanoid robots that blur the line between science fiction and reality...</p>
                         <a href="https://jacintodesign.github.io/typographix-blog-v3/article2.html">Read More</a>
                     </div>
                     
                     <!-- Article 2 -->
-                    <div class="article hidden">
+                    <div class="article">
                         <img src="assets/blog-3.jpg" alt="Underwater Computer" loading="lazy">
-                        <h2>Diving Deep: Underwater Cooling Computer Hardware</h2>
+                        <h3>Diving Deep: Underwater Cooling Computer Hardware</h3>
                         <p>In the realm of cutting-edge technology, a groundbreaking solution has emerged to tackle the persistent challenge of cooling high-performance computer hardware: underwater cooling...</p>
                         <a href="https://jacintodesign.github.io/typographix-blog-v3/article3.html">Read More</a>
                     </div>
                     
                     <!-- Article 3 -->
-                    <div class="article hidden">
+                    <div class="article">
                         <img src="assets/blog-4.jpg" alt="Windmill Farm" loading="lazy">
-                        <h2>Harnessing the Breeze: The Future of Wind Energy</h2>
+                        <h3>Harnessing the Breeze: The Future of Wind Energy</h3>
                         <p>In a world where sustainable energy sources are gaining paramount importance, wind energy emerges as a frontrunner in the race to combat climate change and ensure a cleaner, greener future...</p>
                         <a href="https://jacintodesign.github.io/typographix-blog-v3/article4.html">Read More</a>
                     </div>
@@ -150,7 +150,7 @@
             <div class="contact-container">
                 <h2>Drop us a Message!</h2>
                 <div class="form-container">
-                    <form action="https://formspree.io/f/mjvqngpw" id="myForm">
+                    <form action="https://formspree.io/f/xvojeznp" method="POST" id="myForm">
                         <div class="grid-container">
                             <div class="form-group">
                                 <label for="first-name">First Name *</label>
@@ -171,7 +171,7 @@
                         </div>
                         <div class="message">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <textarea name="message" id="message" required></textarea>
                         </div>
                         <button type="submit">Submit</button>
                     </form>
