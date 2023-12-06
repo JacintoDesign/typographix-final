@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create observers for different sections
   createObserver('#about .phrase', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
   createObserver('#gallery .image-box', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
-  createObserver('#blog .featured-article, #blog .article', { root: null, threshold: isMobile ? 0 : 0.3 }, 'fadeInUp');
-  createObserver('#contact > div', { root: null, threshold: isMobile ? 0 : 0.7 }, 'fadeInUp');
+  createObserver('#blog .featured-article, #blog .article', { root: null, threshold: isMobile ? 0.01 : 0.3 }, 'fadeInUp');
+  createObserver('#contact > div', { root: null, threshold: isMobile ? 0.01 : 0.7 }, 'fadeInUp');
 });
 
 // Navigation ----------------------------------------
