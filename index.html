@@ -150,28 +150,28 @@
             <div class="contact-container">
                 <h2>Drop us a Message!</h2>
                 <div class="form-container">
-                    <form>
+                    <form action="https://formspree.io/f/mjvqngpw" id="myForm">
                         <div class="grid-container">
                             <div class="form-group">
                                 <label for="first-name">First Name *</label>
-                                <input type="text" id="first-name" required>
+                                <input type="text" name="first-name" id="first-name" required>
                             </div>
                             <div class="form-group">
                                 <label for="last-name">Last Name *</label>
-                                <input type="text" id="last-name" required>
+                                <input type="text" name="last-name" id="last-name" required>
                             </div>
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
-                                <input type="tel" id="telephone">
+                                <input type="tel" name="telephone" id="telephone">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" id="email" required>
+                                <input type="email" name="email" id="email" required>
                             </div>
                         </div>
                         <div class="message">
                             <label for="message">Message *</label>
-                            <textarea id="message" required></textarea>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit">Submit</button>
                     </form>
@@ -191,6 +191,11 @@
             <a href="#"><i class="fa-brands fa-linkedin-in" title="LinkedIn"></i></a>
         </div>
     </footer>
+
+    <!-- Toast -->
+    <div class="toast-container">
+        <div id="toast" class="toast">Your message has been receieved!</div>
+    </div>
 
     <!-- Script -->
     <script src="script.js"></script>
